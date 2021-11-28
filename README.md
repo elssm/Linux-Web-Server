@@ -5,9 +5,11 @@
 - 采用epoll实现的并发服务器
 - 采用libevent实现的并发服务器
 
-本项目是学习Linux系统编程和网络编程阶段的学习项目
+本项目是在学习了Linux系统编程和网络编程之后完成的
+[Linux系统编程](https://www.bilibili.com/video/BV1KE411q7ee)
+[Linux网络编程](https://www.bilibili.com/video/BV1iJ411S7UA?p=1)
 
-在写服务器的过程中，对`Tcp`,`Socket`和`多线程多进程`都有了更深的了解。
+在写并发服务器的过程中，对`Tcp`,`Socket`和`多线程多进程`都有了更深的了解。
 
 #### 启动方式
 
