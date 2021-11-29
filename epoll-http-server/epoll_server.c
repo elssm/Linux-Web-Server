@@ -30,9 +30,9 @@ void send_error(int cfd, int status, char *title, char *text)
 	memset(buf, 0, sizeof(buf));
 
 	sprintf(buf, "<html><head><title>%d %s</title></head>\n", status, title);
-	sprintf(buf+strlen(buf), "<body bgcolor=\"#cc99cc\"><h2 align=\"center\">%d %s</h4>\n", status, title);
-	sprintf(buf+strlen(buf), "%s\n", text);
-	sprintf(buf+strlen(buf), "<hr>\n</body>\n</html>\n");
+	sprintf(buf+strlen(buf), "<body><h2 align=\"center\">%d %s</h4>\n", status, title);
+	sprintf(buf+strlen(buf), "<hr>\n<div align=\"center\"><font>%s</font></div>\n", text);
+	sprintf(buf+strlen(buf), "</body>\n</html>\n");
 	send(cfd, buf, strlen(buf), 0);
 
 	return ;
@@ -267,21 +267,12 @@ void send_respond_head(int cfd, int no, const char* desp, const char* type, long
 
 	char buf[4096] = {0};
 	sprintf(buf,"HTTP/1.1 %d %s\r\n",no,desp);
+	//buf+strlen(buf)相当于连续写入buf，不覆盖前面buf中的值
 	sprintf(buf+strlen(buf),"%s\r\n",type);
 	sprintf(buf+strlen(buf),"Content-Length:%ld\r\n",len);
 	send(cfd,buf,strlen(buf),0);
 	send(cfd,"\r\n",2,0);
 
-	//char buf[1024] = {0};
-	// 状态行
-	//sprintf(buf, "http/1.1 %d %s\r\n", no, desp);
-	//send(cfd, buf, strlen(buf), 0);
-	// 消息报头
-	//sprintf(buf, "Content-Type:%s\r\n", type);
-	//sprintf(buf+strlen(buf), "Content-Length:%ld\r\n", len);
-	//send(cfd, buf, strlen(buf), 0);
-	// 空行
-	//send(cfd, "\r\n", 2, 0);
 }
 
 // 发送文件
