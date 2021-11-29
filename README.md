@@ -45,4 +45,4 @@
 
 #### 请求不存在的路径
 
-![请求图片](https://github.com/elssm/Linux-Web-Server/blob/main/photo/7.png)
+![请求图片](https://github.com/elssm/Linux-Web-Server/blob/main/photo/8.png)
